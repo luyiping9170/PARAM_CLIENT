@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PARAM_CLIENTActivity!</string>
+    <string name="app_name">PARAM_CLIENT</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="choose_contact">选择联系人</string>
+    <string name="ungouped_zh">未分组</string>
+
+</resources>
