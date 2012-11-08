@@ -41,7 +41,6 @@ public class MsgCenterActivity extends ParamView implements OnKeyListener{
 	
 	private ListView msg_list;
 	
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		
@@ -70,36 +69,10 @@ public class MsgCenterActivity extends ParamView implements OnKeyListener{
 		/// Init controller and dao
 		initInfrastructure();
 		
+		/// download and init configuration
 		
+		///Init data
 		
-		// Start background service
-		this.startService(new Intent(this,MyService.class));
-	}
-	
-	@Override
-	public void onStart(){
-		
-	}
-	
-	@Override
-	public void onResume(){
-		
-	}
-	
-	@Override
-	public void onPause(){
-		
-	}
-	
-	@Override
-	public void onStop(){
-		
-	}
-	
-	@Override
-	public void onDestroy(){
-		super.onDestroy();
-		this.stopService(new Intent(this,MyService.class));
 	}
 	
 	/**
@@ -107,7 +80,7 @@ public class MsgCenterActivity extends ParamView implements OnKeyListener{
 	 */
 	private void initInfrastructure(){
 		controller = new Controller();
-		dao		   = new Dao(this);
+		dao		   = Dao.instance(this);
 	}
 
 	private void initListener(){
@@ -149,6 +122,32 @@ public class MsgCenterActivity extends ParamView implements OnKeyListener{
 			
 		});
 	}
+	
+	@Override
+	public void onStart(){
+		super.onStart();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+	}
+	
+	@Override
+	public void onPause(){
+		super.onPause();
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		this.stopService(new Intent(this,MyService.class));
+	}
 
 	
 	@Override
@@ -158,7 +157,7 @@ public class MsgCenterActivity extends ParamView implements OnKeyListener{
 	}
 
 	/**
-	 * ÖØÔØºóÍË¼üµÄÐÐÎª±£Ö¤Ó¦ÓÃºóÌ¨ÔËÐÐ¡£
+	 * ï¿½ï¿½ï¿½Øºï¿½ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ö¤Ó¦ï¿½Ãºï¿½Ì¨ï¿½ï¿½ï¿½Ð¡ï¿½
 	 */
 	@Override
 	public boolean onKey(View v, int keyCode, KeyEvent event) {

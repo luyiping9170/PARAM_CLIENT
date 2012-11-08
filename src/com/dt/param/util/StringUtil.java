@@ -1,7 +1,10 @@
 package com.dt.param.util;
 
+import java.io.UnsupportedEncodingException;
 import java.text.Collator;
 import java.util.Arrays;
+
+import org.apache.commons.codec.binary.Base64;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
@@ -33,7 +36,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * »ñÈ¡strµÄÆ´ÒôÊ××ÖÄ¸£¬ÈôÊ××ÖÄ¸²»ÊÇºº×Ö£¬ÔòÖ±½Ó·µ»Ø£¬·ñÔò½âÎö¸Ãºº×ÖµÄººÓïÆ´Òô²¢»ñÈ¡Ê××ÖÄ¸
+	 * ï¿½ï¿½È¡strï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½Çºï¿½ï¿½Ö£ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ÖµÄºï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä¸
 	 * @param str
 	 * @return
 	 */
@@ -52,7 +55,7 @@ public class StringUtil {
 	}
 
 	/***
-	 * ÅÐ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÒÑÖÐÎÄ×Ö´®¿ªÍ·
+	 * ï¿½Ð¶ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Í·
 	 * @param word
 	 * @return
 	 */
@@ -61,7 +64,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * ÅÐ¶ÏÒ»¸ö×Ö·ûÊÇ·ñÎªÖÐÎÄ×Ö·û
+	 * ï¿½Ð¶ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
 	 * @param c
 	 * @return
 	 */
@@ -70,7 +73,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * ÅÐ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñ°üº¬ÖÐÎÄ
+	 * ï¿½Ð¶ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param c
 	 * @return
 	 */
@@ -79,7 +82,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * Ê¹ÓÃpinyin4j½«ºº×Ö×ª»¯ÎªººÓïÆ´Òô
+	 * Ê¹ï¿½ï¿½pinyin4jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½
 	 * @param str
 	 * @return
 	 */
@@ -111,7 +114,7 @@ public class StringUtil {
     }  
 	
 	/**
-	 * ½«Ò»¸öÖÐÎÄ×Ö·û×ªÎªÆ´Òô×Ö·û´®
+	 * Parse a Chinese string into pinyin representation
 	 * @param c
 	 * @return
 	 * @throws BadHanyuPinyinOutputFormatCombination 
@@ -126,4 +129,13 @@ public class StringUtil {
 		}
 		return "z";
 	}
+	
+	public static String BASE64Encode(String str) throws UnsupportedEncodingException{
+		return Base64.encodeBase64String(str.getBytes("UTF-8"));
+	}
+	
+	public static String BASE64Decode(String str) throws UnsupportedEncodingException{
+		return new String(Base64.decodeBase64(str),"UTF-8");
+	}
+	
 }

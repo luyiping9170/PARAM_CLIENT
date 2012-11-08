@@ -11,13 +11,15 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 	
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar" android:testOnly="false" android:allowTaskReparenting="true" android:killAfterRestore="false">
         <uses-library android:name="android.test.runner" />
         <activity
-            android:name=".view.activity.MsgCenterActivity"
+            android:name=".view.activity.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
@@ -28,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.MsgCenterActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".view.activity.ContactChooseActivity" android:screenOrientation="portrait"></activity>
         <service android:name=".controller.MyService"></service>
     </application>
